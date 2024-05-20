@@ -1,3 +1,9 @@
+# Preview the site
+
+This site provides a minimal setup for blog post and can be filter, bookmarked and like afterwards.
+
+## [Blog application](https://blog-post-olive.vercel.app/) 
+
 # Getting Started with Create React App and Redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
