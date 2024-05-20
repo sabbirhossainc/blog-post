@@ -17,7 +17,7 @@ const Navbar = () => {
             <div className="search-outline">
               <Search />
               <div className="search-button">
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i className="fa-solid fa-magnifying-glass"></i>
               </div>
             </div>
             <button className="btn btn-primary">

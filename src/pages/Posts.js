@@ -14,11 +14,11 @@ const Posts = () => {
 
   const { id, tags } = post || {};
 
-  const {postId} = useParams()
+  const { postId } = useParams();
 
   useEffect(() => {
     dispatch(fetchPost(postId));
-  }, [dispatch,postId]);
+  }, [dispatch, postId]);
 
   // decide what to show
   let content;
@@ -34,8 +34,8 @@ const Posts = () => {
     content = (
       <section className="post-page-container">
         <main className="post">
-        {/* <!-- detailed post  --> */}
-        <PostDescription  post={post}/>
+          {/* <!-- detailed post  --> */}
+          <PostDescription post={post} isLoading={isLoading} />
         </main>
         {/* <!-- related posts --> */}
         <RelatedPostList currentPostId={id} tags={tags} />
