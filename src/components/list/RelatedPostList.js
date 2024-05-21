@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchRelatedPosts } from "../../features/relatedPosts/relatedPostSlice";
 import Loading from "../../ui/Loading";
 import RelatedPostListItem from "./RelatedPostListItem";
+import CardLoading from "../../ui/CardLoading";
 
 const RelatedPostList = ({ currentPostId, tags }) => {
   const dispatch = useDispatch();
@@ -16,8 +17,10 @@ const RelatedPostList = ({ currentPostId, tags }) => {
 
   // decide what to show
   let content;
+  const classname = "space-y-4 related-post-container";
 
-  if (isLoading) content = <Loading />;
+  if (isLoading)
+    content = <CardLoading times={4} classname={classname} heading={false} />;
   if (!isLoading && isError) {
     content = <div className="">{error}</div>;
   }

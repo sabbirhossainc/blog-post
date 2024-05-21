@@ -10,7 +10,7 @@ const PostDescription = ({ post }) => {
       <img
         src={image}
         alt="githum"
-        className="w-100 rounded-md"
+        className="w-full h-80 rounded-md"
         id="lws-megaThumb"
       />
       <div>

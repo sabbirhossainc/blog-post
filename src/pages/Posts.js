@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import PostDescription from "../components/description/PostDescription";
 import RelatedPostList from "../components/list/RelatedPostList";
 import { fetchPost } from "../features/post/postSlice";
-import Loading from "../ui/Loading";
+import PostInfoLoading from "../ui/PostInfoLoading";
 
 const Posts = () => {
   const dispatch = useDispatch();
@@ -23,12 +23,19 @@ const Posts = () => {
   // decide what to show
   let content;
 
-  if (isLoading) content = <Loading />;
+  if (isLoading)
+    content = (
+      <div className="post-page-container">
+        <main className="post">
+          <PostInfoLoading />
+        </main>
+      </div>
+    );
   if (!isLoading && isError) {
-    content = <div className="">{error}</div>;
+    content = <div className="post-page-container">{error}</div>;
   }
   if (!isError && !isLoading && !post?.id) {
-    content = <div>Post Not found!</div>;
+    content = <div className="post-page-container">Post Not found!</div>;
   }
   if (!isError && !isLoading && post?.id) {
     content = (
