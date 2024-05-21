@@ -6,6 +6,7 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 const initialState = {
   post: {},
   isLoading: false,
+  isUpdating: false,
   isError: false,
   error: "",
 };
@@ -50,7 +51,7 @@ const postSlice = createSlice({
     // update post
     builder
       .addCase(updatePost.pending, (state) => {
-        state.isLoading = true;
+        state.isUpdating = true;
         state.isError = false;
         state.error = "";
       })
@@ -59,12 +60,12 @@ const postSlice = createSlice({
           action.payload || {};
         const { likes, isSaved } = state.post;
 
-        state.isLoading = false;
+        state.isUpdating = false;
         state.post.likes = updateLikes || likes;
         state.post.isSaved = isBoolean(updateSaved) ? updateSaved : isSaved;
       })
       .addCase(updatePost.rejected, (state, action) => {
-        state.isLoading = false;
+        state.isUpdating = false;
         state.isError = true;
         state.error = action.error?.message;
         state.post = {};
